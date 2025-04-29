@@ -1,0 +1,315 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .chart-container {
+    position: relative;
+    margin: 30px 0;
+  }
+  
+  .tooltip {
+    position: absolute;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 14px;
+    max-width: 250px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tooltip h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+  }
+  
+  .tooltip p {
+    margin: 5px 0;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .btn {
+    background-color: #4a86e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+  }
+  
+  .btn:hover {
+    background-color: #2a66c8;
+  }
+  
+  .btn.active {
+    background-color: #2a56a8;
+    font-weight: bold;
+  }
+  
+  .legend-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  #legend {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .legend-label {
+    margin: 0 10px;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .cell {
+    stroke: #fff;
+    stroke-width: 1px;
+    transition: opacity 0.2s;
+  }
+  
+  .cell:hover {
+    stroke: #333;
+    stroke-width: 2px;
+    cursor: pointer;
+  }
+  
+  .axis text {
+    font-size: 12px;
+    fill: #666;
+  }
+  
+  .axis-title {
+    font-size: 14px;
+    fill: #333;
+    font-weight: bold;
+  }
+  
+  .detail-panel {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #4a86e8;
+  }
+  
+  .detail-title {
+    margin-top: 0;
+    color: #4a86e8;
+  }
+  
+  .detail-text {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .war-label {
+    font-weight: bold;
+    text-anchor: middle;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .selected {
+    stroke: #000;
+    stroke-width: 2px;
+  }
+
+  /* Add to your existing CSS */
+
+/* Loading spinner */
+#loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #4a86e8;
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Grid lines */
+  .grid line {
+    stroke: #e0e0e0;
+    shape-rendering: crispEdges;
+  }
+  
+  .grid path {
+    stroke-width: 0;
+  }
+  
+  /* Improved cell styling */
+  .cell {
+    stroke: #fff;
+    stroke-width: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .cell:hover {
+    stroke: #333;
+    stroke-width: 2px;
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+  
+  .cell.selected {
+    stroke: #000;
+    stroke-width: 2.5px;
+    stroke-dasharray: 3,3;
+    filter: brightness(1.05);
+  }
+  
+  /* Enhanced tooltip */
+  .tooltip {
+    position: absolute;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 6px;
+    pointer-events: none;
+    font-size: 14px;
+    max-width: 260px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+  }
+  
+  .tooltip h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+    
+    .subtitle {
+      font-size: 14px;
+    }
+    
+    .controls {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .btn {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+/* Add these styles to the end of your styles.css file */
+.hover-highlight {
+    stroke: #333;
+    stroke-width: 2px;
+    filter: brightness(1.1);
+  }
+  
+  /* Animation styles */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.4s ease-out;
+  }
+  
+  /* Button animations */
+  .btn {
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn.active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Detail panel transitions */
+  .detail-panel {
+    transition: all 0.4s ease-in-out;
+  }
