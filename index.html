@@ -3,44 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Military Inductions Heatmap</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>US Military Inductions During Major Wars</h1>
-    <p class="subtitle">Heatmap visualization of military inductions by year during the four major wars of the 20th century</p>
-
-    <div class="detail-panel" id="detailPanel">
-        <h3 class="detail-title">About This Visualization</h3>
-        <p class="detail-text">
-          This heatmap shows the number of military inductions during the four major US wars of the 20th century:
-          World War I, World War II, Korean War, and Vietnam War. Each cell represents one year, and the color
-          intensity indicates the number of inductions.
-        </p>
-      </div>
-    </div>
-
-    <div class="controls">
-      <button class="btn active" id="btnAbsolute">Absolute Numbers</button>
-      <button class="btn" id="btnRelative">Relative to War</button>
-    </div>
-
-    <div class="chart-container">
-      <div id="heatmap"></div>
-      <div class="tooltip" id="tooltip"></div>
-    </div>
-
-    <div class="legend-container">
-      <div id="legend"></div>
-    </div>
-
-    
-
-  <!-- D3.js library -->
+  <title>Army Casualties Visualization</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css"> <!-- Your external CSS -->
+</head>
 
-  <!-- Your script -->
-  <script src="js/script.js"></script>
+<body>
+
+  <h1>Army Casualties Visualization</h1> <!-- Optional, but looks nice -->
+
+  <div class="controls">
+    <select id="filter">
+      <option value="all">All Wars</option>
+      <option value="before1950">Before 1950</option>
+      <option value="after1950">After 1950</option>
+    </select>
+
+    <button id="sortButton">Sort by Total Deaths</button>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="color-box" style="background-color: #ffcccc;"></div>
+      <span>Fewer Deaths</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: #990000;"></div>
+      <span>More Deaths</span>
+    </div>
+  </div>
+
+  <div id="chart" class="chart-container"></div> <!-- Chart container -->
+
+  <script src="js/script.js"></script> <!-- Your external JS -->
+  
 </body>
 </html>
