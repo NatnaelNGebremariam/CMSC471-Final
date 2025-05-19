@@ -1,0 +1,364 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background-color: #878787;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  p{
+    text-align: center;
+    /* padding-left: 240px;
+    padding-right: 240px; */
+  }
+
+  ul{
+    text-align: left;
+    padding-left: 240px;
+    padding-right: 240px;
+  }
+  
+  #chart {
+    width: 100%;
+    height: 500px;
+    margin: 40px auto;
+    border: 1px solid #ccc;
+    background: white;
+  }
+  
+
+  .tooltip {
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    pointer-events: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    z-index: 1000;
+  }
+  
+
+  #resetZoomBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #305CDE;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  #resetZoomBtn:hover {
+    background-color: #ff851b;
+  }
+  
+
+  #vis svg {
+    margin: 2rem 0;
+    border: 1px solid #ccc; /*otherwise you can't see this part*/
+}
+
+.labels {
+    paint-order: stroke;
+    stroke: #ffffffaa;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#tooltip {
+    position: absolute; /* So we can move it with the cursor */
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    pointer-events: none; /* Prevent tooltip from interfering with mouse events */
+    font-size: 40px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  #vis4 {
+    margin-top: 30px;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .chart-container {
+    position: relative;
+    margin: 30px 0;
+  }
+  
+  .tooltip {
+    position: absolute;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 6px;
+    pointer-events: none;
+    font-size: 14px;
+    max-width: 260px;
+    z-index: 100;
+    /* opacity: 0; */
+    transition: opacity 0.3s;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+  }
+  
+  .tooltip h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .tooltip p {
+    margin: 5px 0;
+  }
+  
+  .legend-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  #legend {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cell {
+    stroke: #fff;
+    stroke-width: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .cell:hover {
+    stroke: #333;
+    stroke-width: 2px;
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+  
+  .cell.selected {
+    stroke: #000;
+    stroke-width: 2.5px;
+    stroke-dasharray: 3,3;
+    filter: brightness(1.05);
+  }
+  
+  .axis text {
+    font-size: 12px;
+    fill: #666;
+  }
+  
+  .axis-title {
+    font-size: 14px;
+    fill: #333;
+    font-weight: bold;
+  }
+  
+  .detail-panel {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #4a86e8;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .detail-title {
+    margin-top: 0;
+    color: #4a86e8;
+  }
+  
+  .detail-text {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  #loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #4a86e8;
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .grid line {
+    stroke: #e0e0e0;
+    shape-rendering: crispEdges;
+  }
+  
+  .grid path {
+    stroke-width: 0;
+  }
+  
+  .hover-highlight {
+    stroke: #333;
+    stroke-width: 2px;
+    filter: brightness(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+#vis5 {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.chart-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.bar {
+    transition: width 10s ease-in-out;
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+.axis-label {
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+/* .tooltip {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 12px;
+    opacity: 0;
+    z-index: 10;
+} */
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #333;
+}
+
+.centered-image {
+  text-align: center;
+}
+
+.centered-image img {
+  display: inline-block;
+}

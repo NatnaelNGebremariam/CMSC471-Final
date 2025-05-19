@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Moral Cost of War</title>
+    <link rel="stylesheet" href="Complete.css">
+</head>
+
+<body>
+    <h1>Overview</h1>
+    <p>
+        War statistics often reduce real lives to abstract numbers, but behind every figure lies a story of loss,
+        sacrifice, and consequence. The Moral Cost of War is an interactive data visualization project that explores
+        the human toll of World War II and its broader context within American military history. Through five
+        thoughtfully curated visualizations, we examine turning points in WWII, compare military and civilian casualties
+        by country, follow the human flow of U.S. wartime deaths, and put America’s losses into historical perspective.
+        Each visualization invites you to engage with the data, uncover hidden patterns, and reflect on how war
+        transforms societies.
+    </p>
+
+    <div class="container">
+        <!-- Centers content and sets max width -->
+
+        <h1>WWII Timeline</h1>
+        <p2>
+            <strong>Chapter 1: </strong>The War Unfolds – An Annotated Timeline
+            This interactive timeline traces the chronological milestones of World War II, beginning with the invasion
+            of Poland in 1939 and progressing through major global turning points. It contextualizes key events like
+            Operation Barbarossa and the attack on Pearl Harbor, allowing you to understand when and how the war
+            expanded in scope. By following this timeline, readers gain a bird’s-eye view of the conflict’s progression,
+            helping frame the deeper data presented later.
+            <strong>To explore the timeline click on events to view more details.</strong>
+        </p2>
+        <div id="chart"></div>
+
+        <figure class = centered-image>
+            <img src="images/WW2 Flag raising.jpg" alt="flag raise" width="900">
+            <figcaption>Figure 1: U.S. Marines raise the American flag atop Mt. Suribachi, Iwo Jima, on Feb. 23, 1945. 
+                Strategically located only 660 miles from Tokyo, the Pacific island became the site 
+                 of one of the bloodiest, most famous battles of World War II against Japan.</figcaption>
+          </figure>
+          
+
+        <h1>WWII Total Deaths</h1>
+        <p2>
+            <strong>Chapter 2:</strong> Who Bore the Weight – Total Deaths by Country
+            This visualization presents the total number of deaths in the countries most affected by World War II,
+            including the USSR, Germany, Poland, and China. By comparing nations side by side, it reveals the
+            staggering scale of loss each endured—some in the tens of millions—highlighting the uneven human cost of
+            global conflict. It also prompts reflection on how geography, occupation, and war strategies determined a
+            country’s fate during the war.
+            <strong>Hover over each bar or area segment to see the exact death toll for each nation.</strong>
+        </p2>
+        <div id="tooltip" style="display:none"></div>
+        <div id="vis2"></div>
+
+        <h1>Sankey Diagram: WW2 Population Progress</h1>
+        <p2>
+            <strong>Chapter 3:</strong> The U.S. War Effort – A Population in Motion
+            This Sankey diagram zooms in on the United States, showing how its wartime population was distributed among
+            civilians, enlisted soldiers, wounded, and those who lost their lives. The visualization presents not just
+            death tolls, but also how war touches multiple layers of a society—from healthy young citizens to grieving
+            families. By watching the flow of people from one group to another, we gain a sense of proportion: how many
+            served, how many survived, and how many were lost.
+            <strong>Follow the streams in the diagram and hover to view numbers at each stage.</strong>
+        </p2>
+        <div id="vis3"></div>
+
+        <h1>US Military Inductions During Major Wars</h1>
+        <p2>
+            <strong>Chapter 4: </strong>Into History – U.S. Conscription Across the 20th Century
+            This heat map places WWII in broader American military history, comparing the number of people drafted into
+            service across four major wars: World War I, World War II, the Korean War, and the Vietnam War. The darker
+            the color, the greater the number of draftees—a quick and powerful visual of national mobilization. This
+            comparison shows just how uniquely massive the draft was during WWII, and how it reshaped American
+            demographics and labor back home.
+            <strong>Hover over the grid to view draft numbers by year.</strong>
+        </p2>
+
+
+        <header>
+        </header>
+        <div class="dashboard-container">
+            <!-- Visualization 1: Heatmap Section -->
+            <section id="heatmap-section" class="viz-section">
+                <div class="description">
+                </div>
+                
+                <div class="container">
+                    <div class="visualization-container">
+                        <div id="heatmap"></div>
+                        <div id="tooltip-heatmap" class="tooltip"></div>
+                    </div>
+                    <div class="legend-container">
+                        <div id="heatmap-legend"></div>
+                    </div>
+                </div>
+            </section>
+    
+        <figure class = centered-image>
+            <img src="images/Roosevelt.jpg" alt="flag raise" width="600">
+            <figcaption>Figure 2: President Roosevelt signed the declaration of war against 
+                Japan on Dec. 8, 1941 plunging the U.S. into its second war in 24 years.</figcaption>
+          </figure>
+
+
+            <h1>Army Casualties by War</h1>
+            <strong>Chapter 5: </strong>To close the story, this animated bar graph pans out and compares U.S. military deaths across every major American conflict, from the Revolutionary War to modern engagements. 
+            The animation puts WWII into historical perspective, highlighting that while it was one of the deadliest wars, it wasn’t the costliest in American history—the Civil War still holds that tragic distinction. 
+            As the bars rise and fall, the animation reminds us that every war leaves a different legacy of loss.
+            <strong>Watch the animation unfold to inspect specific wars and their death tolls.
+            </strong>
+            <br>
+        </p2>
+
+            <!-- Visualization 2: Bar Chart Section -->
+            <section id="barchart-section" class="viz-section">
+                <div class="description">
+                    
+                </div>
+                
+                <div class="controls">
+                    <select id="war-filter">
+                        <option value="all">All Wars</option>
+                        <option value="before1950">Before 1950</option>
+                        <option value="after1950">After 1950</option>
+                    </select>
+                    <button id="sort-button">Sort by Total Deaths</button>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="color-box" style="background-color: red;"></div>
+                        <span>Less than 150k Deaths</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box" style="background-color: #990000;"></div>
+                        <span>More than 150k Deaths</span>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div id="barchart"></div>
+                    <div id="tooltip-barchart" class="tooltip"></div>
+                </div>
+            </section>
+        </div>
+
+        <hr>
+        <h1>Sources</h1>
+            <ul>
+                <li>Vis 1: https://wwiifoundation.org/timeline-of-wwii/</li>
+                <li>Vis 2: https://www.kaggle.com/datasets/notkrishna/world-war-2-causalities-by-country/</li>
+                <li>Vis 3: https://www.kaggle.com/datasets/notkrishna/world-war-2-causalities-by-country</li>
+                <li>Vis 4: https://www.sss.gov/history-and-records/induction-statistics/</li>
+                <li>Vis 5: https://www.congress.gov/crs-product/RL32492</li>
+                <li>Figure 1: https://apimagesblog.com/blog/2015/11/10/world-war-ii-unforgettable-stories</li>
+                <li>Figure 2: https://apimagesblog.com/blog/2015/11/10/world-war-ii-unforgettable-stories</li>
+            </ul>
+    </div>
+
+    <!-- Load D3.js and project scripts -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="data-Timeline.js"></script>
+    <script src="timeline.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+    <script type="module" src="js/bar.js"></script>
+    <script type="module" src="js/sankey.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="js/scriptFV.js"></script>
+
+</body>
+</html>
